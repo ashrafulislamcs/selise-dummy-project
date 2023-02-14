@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selise-project
+  labels:
+    app: selise-project
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: selise-project
+    template:
+      metadata:
+        labels:
+          app: selise-project
+      spec:
+        containers:
+        - name: selise-project
+          image: ashrafulislamcs/selise:latest
+          ports:
+          - containerPort: 3000
